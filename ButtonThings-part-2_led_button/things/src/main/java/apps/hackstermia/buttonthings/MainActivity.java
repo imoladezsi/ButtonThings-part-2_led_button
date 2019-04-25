@@ -61,10 +61,16 @@ public class MainActivity extends Activity {
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getAction() == KeyEvent.ACTION_DOWN) {
-            Log.i(TAG, "Dispatched key event");
+            Log.i(TAG, "Dispatched key event down");
 
-            setLedValue(!getLedValue());
+            setLedValue(false);
             return true;
+        }
+        if (event.getAction() == KeyEvent.ACTION_UP) {
+            Log.i(TAG, "Dispatched key event up");
+
+            setLedValue(true);
+            return false;
         }
         return false;
     }
